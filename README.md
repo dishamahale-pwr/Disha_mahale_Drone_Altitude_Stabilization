@@ -20,8 +20,8 @@ The objective is to design a PID controller such that:
 
 ## Assumptions
 - The drone altitude dynamics are approximated as a linear time-invariant second-order system.
-- Input to the plant is thrust command.
-- Output of the plant is altitude.
+- Input to the drone dynamics is thrust command.
+- Output of the drone dynamics is altitude.
 - Wind disturbance is modeled as an external input disturbance applied at t = 5 seconds.
 - Sensor noise, actuator saturation, nonlinear aerodynamics, and battery effects are neglected.
 
