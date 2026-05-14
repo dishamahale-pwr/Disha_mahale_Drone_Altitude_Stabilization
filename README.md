@@ -70,6 +70,9 @@ G(s) = 1 / (s^2 + 2s + 5)
    - Settling time
    - Steady-state error
    - Stability
+7. Test PID robustness under disturbance and model variations.
+8. Visualize drone altitude behavior using a 3D MATLAB animation.
+   
 ## Additional Features
 
 ### Robustness Evaluation
