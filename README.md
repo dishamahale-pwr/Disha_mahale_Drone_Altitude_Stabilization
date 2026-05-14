@@ -35,24 +35,20 @@ The objective is to design a PID controller such that:
 ## Repository Structure
 
 Disha_mahale_Drone_Altitude_Stabilization/
-Disha_mahale_Drone_Altitude_Stabilization/
-│
-├── README.md
-│
-├── src/
-│   ├── drone_altitude_pid.m
-│   └── drone_altitude_model.slx
-│
-├── results/
-│   ├── simulink_model.png
-│   ├── simulink_scope_output.png
-│   ├── open_loop_response.png
-│   ├── closed_loop_response.png
-│   └── disturbance_response.png
-│
-└── video/
-    └── drone_altitude_working.mp4
-    
+## Repository Structure
+
+| Folder/File | Description |
+|---|---|
+| `README.md` | Project explanation, dependencies, approach, results, and run instructions |
+| `src/drone_altitude_pid.m` | MATLAB code for transfer function, PID controller, plots, and performance metrics |
+| `src/drone_altitude_model.slx` | Simulink model for the closed-loop drone altitude control system |
+| `results/simulink_model.png` | Screenshot of the Simulink model |
+| `results/simulink_scope_output.png` | Scope output showing altitude response |
+| `results/open_loop_response.png` | Open-loop response plot |
+| `results/closed_loop_response.png` | Closed-loop response plot |
+| `results/disturbance_response.png` | Disturbance response plot |
+| `video/drone_altitude_working.mp4` | Working video of the simulation |
+
 ## Source Code
 The src folder contains the MATLAB and Simulink source files:
 
