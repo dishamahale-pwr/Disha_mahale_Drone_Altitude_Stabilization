@@ -145,6 +145,15 @@ The closed-loop response shows the altitude response after applying the PID cont
 A wind disturbance is applied at t = 5 s. The PID controller rejects the disturbance and brings the altitude back near the desired value.
 
 ![Disturbance Response](results/disturbance_response.png)
+## Robustness Test Response
+The PID controller is tested under disturbance and model variations. The response shows that the controller remains stable and maintains altitude performance under different conditions.
+
+![Robustness Test Response](results/robustness_response.png)
+
+## 3D Drone Altitude Visualization
+The drone altitude response is visualized in 3D to show how the drone moves over time while tracking the desired altitude.
+
+![3D Drone Altitude Visualization](results/drone_3d_visualization.png)
 
 ## Results
 
