@@ -70,6 +70,34 @@ G(s) = 1 / (s^2 + 2s + 5)
    - Settling time
    - Steady-state error
    - Stability
+## Additional Features
+
+### Robustness Evaluation
+
+In addition to the nominal PID-controlled response, the project includes robustness checks to evaluate how the altitude controller behaves under non-ideal conditions.
+
+The robustness analysis may include:
+
+- Variation in drone plant parameters such as damping and stiffness
+- Different wind disturbance magnitudes
+- Actuator saturation limits on thrust command
+- Sensor noise added to altitude feedback
+- Performance comparison across nominal and uncertain cases
+
+This helps verify that the PID controller is not only stable for the ideal transfer function, but also maintains acceptable altitude tracking when the drone model or environment changes.
+
+### 3D Drone Visualization
+
+A 3D drone visualization is included to improve understanding of the altitude stabilization behavior. The visualization represents the drone motion during simulation and helps show how the altitude changes over time in response to the PID controller and wind disturbance.
+
+The 3D view can be used to demonstrate:
+
+- Drone takeoff toward the reference altitude
+- Stabilization around the desired altitude
+- Altitude deviation after wind disturbance
+- Recovery behavior due to PID control
+
+This makes the project easier to interpret visually and provides a more realistic representation of the control system output.
 
 ## PID Controller Parameters
 
