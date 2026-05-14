@@ -3,7 +3,7 @@ Drone altitude stabilization using PID control in MATLAB with disturbance reject
 # Drone Altitude Stabilization Using PID Controller
 
 ## Project Overview
-This project designs and simulates a control system to regulate the altitude of a drone under external disturbance such as wind.
+This project designs and simulates a PID control system to regulate the altitude of a drone under external disturbance such as wind.
 
 The drone vertical dynamics are modeled using the transfer function:
 
@@ -31,67 +31,130 @@ The objective is to design a PID controller such that:
 - MATLAB
 - Simulink
 - Control System Toolbox
-- Simulink Control Design toolbox 
+
+## Repository Structure
+
+Disha_mahale_Drone_Altitude_Stabilization/
+│
+├── README.md
+│
+├── src/
+│   ├── drone_altitude_pid.m
+│   └── drone_altitude_model.slx
+│
+├── results/
+│   ├── simulink_model.png
+│   ├── simulink_scope_output.png
+│   ├── open_loop_response.png
+│   ├── closed_loop_response.png
+│   └── disturbance_response.png
+│
+└── video/
+    └── drone_altitude_working.mp4
+
+## Source Code
+The src folder contains the MATLAB and Simulink source files:
+
+- drone_altitude_pid.m  
+  MATLAB script used to define the transfer function, design the PID controller, simulate the open-loop and closed-loop responses, introduce disturbance, and evaluate performance metrics.
+
+- drone_altitude_model.slx  
+  Simulink model file for the drone altitude control system. It contains the step reference input, PID controller, disturbance input, drone transfer function, feedback connection, scope, and altitude output.
 
 ## Approach
-1. Define the drone altitude transfer function.
+1. Define the drone altitude transfer function:
+
+G(s) = 1 / (s^2 + 2s + 5)
+
 2. Analyze the open-loop step response.
 3. Design a PID controller.
 4. Simulate the closed-loop response.
 5. Add wind disturbance at t = 5 seconds.
-6. Evaluate performance using standard control metrics.
-
-## Transfer Function
-
-G(s) = 1 / (s^2 + 2s + 5)
+6. Evaluate performance using standard control metrics:
+   - Overshoot
+   - Settling time
+   - Steady-state error
+   - Stability
 
 ## PID Controller Parameters
 
-Kp = 70  
-Ki = 20  
+Kp = 70
+Ki = 20
 Kd = 11
 
-## Simulink Model
-The Simulink model uses negative feedback control.
+## How It Works
+The desired altitude is represented as h_ref(t) and the actual altitude output is represented as h(t).
 
-Desired altitude is compared with actual altitude:
+The error signal is:
 
 e(t) = h_ref(t) - h(t)
 
-The PID controller generates the thrust command. Wind disturbance is added at the plant input. The drone plant produces altitude output h(t).
+The PID controller uses this error to generate the thrust command. A wind disturbance is added at the plant input at t = 5 s. The drone plant then produces the altitude output h(t), which is fed back using negative feedback.
+
+Desired Altitude -> Error Sum -> PID Controller -> Thrust + Wind Disturbance -> Drone Plant -> Altitude Output
+                                      ^                                           |
+                                      |___________________________________________|
+
+## Simulink Model
+The Simulink model implements the closed-loop altitude stabilization system.
+
+![Simulink Model](results/simulink_model.png)
+
+## Scope Output
+The scope output shows the altitude response of the drone. The response settles near the desired altitude and remains stable after the disturbance is applied.
+
+![Simulink Scope Output](results/simulink_scope_output.png)
+
+## Open-Loop Response
+The open-loop response shows the behavior of the drone plant without the PID controller.
+
+![Open Loop Response](results/open_loop_response.png)
+
+## Closed-Loop Response
+The closed-loop response shows the altitude response after applying the PID controller.
+
+![Closed Loop Response](results/closed_loop_response.png)
+
+## Disturbance Response
+A wind disturbance is applied at t = 5 s. The PID controller rejects the disturbance and brings the altitude back near the desired value.
+
+![Disturbance Response](results/disturbance_response.png)
 
 ## Results
 
 | Metric | Requirement | Result |
 |---|---:|---:|
-| Overshoot | < 10% | approximately 7% |
-| Settling Time | < 3 s | less than 3 s |
-| Steady-State Error | approximately 0 | approximately 0 |
-| Stability | Stable | Stable |
+| Overshoot | < 10% | Satisfied |
+| Settling Time | < 3 s | Satisfied |
+| Steady-State Error | Approximately 0 | Satisfied |
+| Stability | Stable | Satisfied |
+| Disturbance Rejection | Stable under disturbance | Satisfied |
 
-## Output Images
+## How to Run
 
-### Simulink Model
-![Simulink Model](results/simulink_model.png)
+1. Open MATLAB.
+2. Open the src folder.
+3. Run the MATLAB script:
 
-### Open-Loop Response
-![Open Loop Response](results/open_loop_response.png)
+drone_altitude_pid
 
-### Closed-Loop Response
-![Closed Loop Response](results/closed_loop_response.png)
+4. To open the Simulink model, run:
 
-### Disturbance Response
-![Disturbance Response](results/disturbance_response.png)
+open_system('drone_altitude_model')
+
+5. Run the Simulink model and open the Scope block to view the altitude output.
 
 ## Working Video
 The working simulation video is available here:
 
 [Watch Working Video](video/drone_altitude_working.mp4)
 
-## How to Run
-1. Open MATLAB.
-2. Navigate to the `src` folder.
-3. Run:
+The video demonstrates:
+- MATLAB code execution
+- Simulink model running
+- Scope output response
+- Disturbance rejection behavior
 
-```matlab
-drone_altitude_pid
+## Conclusion
+The PID controller successfully stabilizes the drone altitude. The system satisfies the required design objectives: overshoot less than 10%, settling time less than 3 seconds, steady-state error approximately zero, and stable operation under wind disturbance.
+
