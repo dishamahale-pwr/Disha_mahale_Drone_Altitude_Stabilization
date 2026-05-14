@@ -47,9 +47,9 @@ G(s) = 1 / (s^2 + 2s + 5)
 
 ## PID Controller Parameters
 
-Kp = 35  
-Ki = 45  
-Kd = 8
+Kp = 70  
+Ki = 20  
+Kd = 11
 
 ## Simulink Model
 The Simulink model uses negative feedback control.
